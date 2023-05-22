@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function btnEvent(){
+            var button1 = document.getElementById("button1");
+            var button2 = document.getElementById("button2");
+
+            // button1.onclick = function(){
+            //     document.body.style.background = "lightpink";
+            // };
+            // button2.onclick = function(){
+            //     document.body.style.background = "white";
+            // };
+
+            button1.onclick = colorChange;
+            button2.onclick = changeOriginal;
+        }
+
+        function colorChange(){
+            document.body.style.background = "lightpink";
+        }
+
+        function changeOriginal(){
+            document.body.style.background = "white";
+        }
+    </script>
+</head>
+<body onload="btnEvent()">
+    <button id="button1">배경색 바꾸기</button>
+    <button id="button2">원래대로 돌아오기</button>
+</body>
+</html>
