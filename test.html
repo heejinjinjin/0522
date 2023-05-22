@@ -5,29 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        var img1;
         function changeImage(){
-            var select1 = document.getElementById("fruit");
-            var img1 = document.getElementById("imgFruit");
-
-            var path = select1.options[select1.selectedIndex].value;
+            var radioArr = document.getElementsByName("radio_fruit");
+            for(var i = 0; i < radioArr.length; i ++){
+                if(radioArr[i].checked){
+                    img1.src = radioArr[i].value;   
+                }
+            }
+            //var path = select1.options[select1.selectedIndex].value;
             //alert(path);
-            img1.src = path;
-            img1.width = 400;
-            img1.height = 350;
+            // img1.src = path;
+            // img1.width = 400;
+            // img1.height = 350;
+        }
+        function init(){
+                img1 = document.getElementById("imgFruit");
+                img1.src = "imgs/orange.jpg";
+                img1.width = 300;
+                img1.height = 200;
         }
     </script>
 </head>
-<body>
+<body onload="init()">
     <form action="">
-        <select id="fruit" onchange="changeImage()">
+        <input type="radio" name="radio_fruit" value="imgs/apple.jpg"> APPLE
+        <input type="radio" name="radio_fruit" value="imgs/kiwi.jpg"> KIWI
+        <input type="radio" name="radio_fruit" value="imgs/orange.jpg"> ORANGE
+        <input type="radio" name="radio_fruit" value="imgs/banana.jpg"> BANANA
+
+        <!-- <select id="fruit" onchange="changeImage()">
             <option value="imgs/apple.jpg">APPLE</option>
             <option value="imgs/kiwi.jpg">KIWI</option>
             <option value="imgs/orange.jpg">ORANGE</option>
             <option value="imgs/banana.jpg">BANANA</option>
-        </select>
-        <!-- <button id="btn" onclick="changeImage()" type="button">과일 선택 후 출력</button> -->
+        </select> -->
+       <button onclick="changeImage()" type="button"> 과일선택 </button>
         <br>
-        <img src="imgs/apple.jpg" id="imgFruit">
+        <img id="imgFruit">
     </form>
 </body>
 </html>
